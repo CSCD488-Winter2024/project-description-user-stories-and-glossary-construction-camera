@@ -27,10 +27,15 @@ As a construction business/consultant I want a detection device so that our comp
 get sued or fined for employees not wearing PPE.
 
 Detection of violations of PPE rules.
+
 Records of these violations, whether that be videos, descriptions, or notifications. 
+
 Low cost for this system.
+
 Easy setup for these systems. 
+
 Minimum knowledge of computer systems to get it running.
+
 Reliability of these systems 
 
 
