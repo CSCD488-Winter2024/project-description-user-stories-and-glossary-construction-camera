@@ -14,7 +14,7 @@ and constant vigilance, not to mention the unreliability of it if he makes frien
 them would eliminate all of these human faults.
 
 
-# Minimal Description
+## Minimal Description
 We envision the product to be a self-sustaining automated safety system that will help ensure the safety of 
 the employees on any site by keeping track if they are wearing PPE at all times.. Simply install the box at a 
 vantage point, and the AI learning software installed inside will use a camera to identify any workers that are not 
@@ -22,9 +22,23 @@ wearing appropriate PPE. Once detected, a video or screenshot will be uploaded t
 supervisor of the employee, allowing them to take action as they wish.
 
 
-# User Stories
+## User Stories
+
+#Functional Requirements
+
 As a construction business/consultant I want a detection device so that our company(s) don’t 
 get sued or fined for employees not wearing PPE.
+
+As a bussiness owner I want easy access to pictures or videos of these violation.
+
+As an employee I want to feel like I will not be falsely accused of a violation. 
+
+As a government inspector I want this system to be secure, not allowing exploitation or any kind. 
+
+As a manager I want to be able to set this up easily and not waste time trouble shooting.
+
+
+##Non-Functional requirements
 
 Detection of violations of PPE rules.
 
@@ -39,7 +53,7 @@ Minimum knowledge of computer systems to get it running.
 Reliability of these systems 
 
 
-# Glossary
+## Glossary
 PPE: Personal Protective Equipment.
 Raspberry Pi: Microcontroller/Microcomputer that is the main circuit board brain that will process 
 and calculate everything.
@@ -60,7 +74,7 @@ it to determine if any faults have occured.
 
 YOLO/OpenCV/TensorFlow: Open source libraries for computer vision.
 
-Python/Rust/JavaScript/HTML/React: Programming languages for development of application and website.
+Python/Rust/JavaScript/HTML/React/Flask: Programming languages for development of application and website.
 
 GPT3: AI library for data generation and lookup.
 
