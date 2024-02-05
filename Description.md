@@ -15,7 +15,7 @@ them would eliminate all of these human faults.
 
 
 # Minimal Description
-	We envision the product to be a self-sustaining automated safety system that will help ensure the safety of 
+We envision the product to be a self-sustaining automated safety system that will help ensure the safety of 
 the employees on any site by keeping track if they are wearing PPE at all times.. Simply install the box at a 
 vantage point, and the AI learning software installed inside will use a camera to identify any workers that are not 
 wearing appropriate PPE. Once detected, a video or screenshot will be uploaded to a phone or email alerting the 
