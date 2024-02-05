@@ -24,7 +24,7 @@ supervisor of the employee, allowing them to take action as they wish.
 
 ## User Stories
 
-#Functional Requirements
+# Functional Requirements
 
 As a construction business/consultant I want a detection device so that our company(s) don’t 
 get sued or fined for employees not wearing PPE.
@@ -38,7 +38,7 @@ As a government inspector I want this system to be secure, not allowing exploita
 As a manager I want to be able to set this up easily and not waste time trouble shooting.
 
 
-##Non-Functional requirements
+# Non-Functional requirements
 
 Detection of violations of PPE rules.
 
