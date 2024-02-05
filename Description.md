@@ -38,7 +38,7 @@ As a government inspector I want this system to be secure, not allowing exploita
 As a manager I want to be able to set this up easily and not waste time trouble shooting.
 
 
-# Non-Functional requirements
+## Non-Functional requirements
 
 Detection of violations of PPE rules.
 
