@@ -1,9 +1,9 @@
-#Employees
+# Employees
 U1: As an employee I want to get alerts when a violation is detected so I or other employees can fix the problem.
 
 U2: As an employee I want to be able to validate these violation by being able to reveiw the violation/video.
 
-#Business/Consultant/Overviewer - The person who actually employs the use of the device.
+# Business/Consultant/Overviewer - The person who actually employs the use of the device.
 U3: As the overviewer I want to be able to start/stop the device
 
 U4: As the overviewer I want to be able to login and view the violation videos
@@ -12,7 +12,7 @@ U5: As the overviewer I want to get alerts when a violation is made.
 
 U6: As the overviewer I want to be able to request and get sent the video files of the violations.
 
-#Technician
+# Technician
 U7: As a technician I want to get error data without being on site.
 
 U8: As a technician I want to be able to export data from the device using physical cables
