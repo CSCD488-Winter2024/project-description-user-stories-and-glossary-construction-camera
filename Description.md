@@ -28,29 +28,27 @@ supervisor of the employee, allowing them to take action as they wish.
 
 ### Employees
 
-As an employee I want to feel like I will not be falsely accused of a violation. 
+As an employee I want to get alerts when a violation is detected so I or other employees can fix the problem. 
 
-As an employee I want to be able to repeal violation if I feel wrongly accused. 
+As an employee I want to be able to validate these violation by being able to reveiw the violation/video. 
 
-As an employee I want to know my privacy isn't going to be invaded. 
+### Business/Consultant/Overviewer - The person who actually employs the use of the device. 
 
-As an employee I want my work flow to continue to be productive. 
+As the overviewer I want to be able to start/stop the device
 
+As the overviewer I want to be able to login and view the violation videos
 
-### Business/Consultant - The person who actually employs the use of the device. 
+As the overviewer I want to get alerts when a violation is made. 
 
-As a construction business/consultant I want a detection device so that our company(s) don’t 
-get sued or fined for employees not wearing PPE.
-
-As a bussiness owner I want easy access to pictures or videos of these violation.
-
-As a government inspector I want this system to be secure, not allowing exploitation or any kind. 
-
-As a manager I want to be able to set this up easily and not waste time trouble shooting.
+As the overviewer I want to be able to request and get sent the video files of the violations. 
 
 ### Technition
 
-As a technition I want the system to be easily understood and simple so I can make fast repairs
+As a technition I want to get error data without being on site.
+
+As a technition I want to be able to export data from the device using physical cables
+
+As a technition I want to be able to update/import data to the device using a physical cable
 
 
 ## Non-Functional requirements
