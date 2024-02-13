@@ -42,13 +42,13 @@ As the overviewer I want to get alerts when a violation is made.
 
 As the overviewer I want to be able to request and get sent the video files of the violations. 
 
-### Technition
+### Technician
 
-As a technition I want to get error data without being on site.
+As a technician I want to get error data without being on site.
 
-As a technition I want to be able to export data from the device using physical cables
+As a technician I want to be able to export data from the device using physical cables
 
-As a technition I want to be able to update/import data to the device using a physical cable
+As a technician I want to be able to update/import data to the device using a physical cable
 
 
 ## Non-Functional requirements
