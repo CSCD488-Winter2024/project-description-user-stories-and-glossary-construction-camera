@@ -26,16 +26,31 @@ supervisor of the employee, allowing them to take action as they wish.
 
 ## Functional Requirements
 
+### Employees
+
+As an employee I want to feel like I will not be falsely accused of a violation. 
+
+As an employee I want to be able to repeal violation if I feel wrongly accused. 
+
+As an employee I want to know my privacy isn't going to be invaded. 
+
+As an employee I want my work flow to continue to be productive. 
+
+
+### Business/Consultant - The person who actually employs the use of the device. 
+
 As a construction business/consultant I want a detection device so that our company(s) don’t 
 get sued or fined for employees not wearing PPE.
 
 As a bussiness owner I want easy access to pictures or videos of these violation.
 
-As an employee I want to feel like I will not be falsely accused of a violation. 
-
 As a government inspector I want this system to be secure, not allowing exploitation or any kind. 
 
 As a manager I want to be able to set this up easily and not waste time trouble shooting.
+
+### Technition
+
+As a technition I want the system to be easily understood and simple so I can make fast repairs
 
 
 ## Non-Functional requirements
