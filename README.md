@@ -1,11 +1,17 @@
+# README is not yet complete since we have only barely started implementing the project
+
 # AI/ML Construction Camera
 ## The project is a box with a camera installed that will overlook a construction site. It has an AI installed that will learn and identify workers that are not wearing PPE, notifying the correct personel so they can rectify the situation. It will notify them through a website and simple sms message sent to their phones.
 ### An AI camera that watches over construction sites and identifies workers without PPE on.
 Every year hundreds of construction workers are hurt and some die from PPE related accidents that are easily preventable. This will help to reduce said accidents by ensuring workers wear the neccesary gear when on the site. By simply installing a box and logging in, you can watch over the site without having to be there. Multiple cameras can also be connected to make a perimeter around the site if needed. 
 ### Installation
+Comsumer - 
 For installation, simply connect the box at a desired vantage point, connect it to power, and login using the website to connect it to your phone and account.
+
+Other -
+You will need a rasberry pi 4 with some type of camera add-on.  The RPI will need to have rasberry pi OS installed.  You will then simply clone the repo onto it, then run the bash script to get it setup. (script is not yet made)
 ### Prerequisites
-An account will have to be made on the website to ensure yu can connect your cameras after you install them. The camera will require power as well to operate. No other set-up will need to be done.
+An account will have to be made on the website to ensure yu can connect your cameras after you install them. The camera will require power as well to operate. No other set-up will need to be done. 
 ### Add-ons
 TODO: List which add-ons are included in the project, and the purpose each add-on serves in your app.
 ### Installation Steps
