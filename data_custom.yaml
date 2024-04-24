@@ -1,6 +1,0 @@
-train: "C:/Users/conne/Downloads/training data/training data/train"
-val: "C:/Users/conne/Downloads/training data/training data/val"
-
-nc: 2
-
-names: ["hat", "vest"]
