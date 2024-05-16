@@ -3,7 +3,14 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <style>
-        body {font-family: Arial, Helvetica, sans-serif;}
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+          background-image: url('images/ConstructionBackground2.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+        }
+
         form {border: 3px solid #f1f1f1;}
         
         input[type=text], input[type=password] {
@@ -66,19 +73,16 @@
     </style>
     </head>
 <body>
-  <h2>Login Form</h2>
-    <div class="imgcontainer">
-        <img src="img_avatar2.png" alt="Avatar" class="avatar">
-    </div>
+  <h2 style="text-align:center; color: #02fdf0;  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" >ML/AI Construction Camera</h2>
     <div class="container">
         <form id="loginPage">
-            <label for="uname"><b>Username</b></label>
+            <label for="uname" style="color: #02fdf0;"><b>Username</b></label>
             <input type="text" placeholder="Enter Username" name="username" id="username" required>
-            <label for="psw"><b>Password</b></label>
+            <label for="psw" style="color: #02fdf0;"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="password" id="password" required>
             <button type="submit">Login</button>
             <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
+                <input type="checkbox" checked="checked" name="remember" style="  color: #02fdf0;  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> Remember me
             </label>
         </form>
     </div>
@@ -91,15 +95,26 @@ document.addEventListener("DOMContentLoaded", function() {
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
 
-        if (username === "moses" && password === "psw") {
-            console.log("correct credentials");
-            window.location.href = "videoPage.html";
-        } else {
-            console.log("incorrect credentials");
-            alert("Incorrect username or password. Please try again.");
-            document.getElementById("username").value = "";
-            document.getElementById("password").value = "";
-        }
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:8000/connect.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        xhr.onreadystatechange = function() {
+          if(xhr.readyState === 4 && xhr.status === 200){
+            if(xhr.responseText === "success"){
+              console.log("Correct credentials");
+              console.log(xhr.responseText);
+              window.location.href = "videoPage.html";
+            }
+            else {
+              console.log("incorrect credentials");
+              alert("Incorrect username or password. Please try again.");
+              document.getElementById("username").value = "";
+              document.getElementById("password").value = "";
+            }
+          }
+        };     
+        xhr.send("username=" + username + "&password=" + password);
     });
 });
 </script>

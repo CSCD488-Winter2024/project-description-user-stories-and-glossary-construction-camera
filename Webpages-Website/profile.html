@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Settings</h1>
+        <button class="button" onclick="location.href='changeUsername.html';">Change Username</button>
+        <button class="button" onclick="location.href='changePassword.html';">Change Password</button>
+        <button class="button" onclick="location.href='changePhoneNumber.html';">Change Phone Number</button>
+        <button class="button" onclick="deleteAccount()">Delete Account</button>
+        <button onclick="logout()">Log Out</button>
+        <!-- Add more buttons/options for other settings here -->
+    </div>
+
+    <script>
+
+        function deleteAccount() {
+            var confirmDelete = confirm("Are you sure you want to delete your account?");
+            if (confirmDelete) {
+                //add extra verification to delete account and extra steps to prevent accidents
+                alert("Your account has been deleted.");
+            }
+        }
+
+        function logout() {
+            alert("Logging out...");
+            window.location.href = "index.html"
+        }
+    </script>
+</body>
+</html>
