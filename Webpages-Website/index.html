@@ -100,14 +100,18 @@ document.addEventListener("DOMContentLoaded", function() {
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
         xhr.onreadystatechange = function() {
+          console.log("Ready state: " + xhr.readyState);
+          console.log("Status: " + xhr.status);
           if(xhr.readyState === 4 && xhr.status === 200){
+            console.log("Response: "+ xhr.responseText);
             if(xhr.responseText === "success"){
               console.log("Correct credentials");
               console.log(xhr.responseText);
-              window.location.href = "videoPage.html";
+              //window.location.href = "videoPage.html";
             }
             else {
               console.log("incorrect credentials");
+              window.location.href = "index.html";
               alert("Incorrect username or password. Please try again.");
               document.getElementById("username").value = "";
               document.getElementById("password").value = "";
