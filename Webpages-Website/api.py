@@ -31,4 +31,20 @@ def index():
     
     return json.dumps(json_data)
 
+@app.route('/api/adminStatus', methods=['GET'])
+def check_admin_status():
+    conn = mariadb.connect(**config)
+    cur = conn.cursor()
+    cur.execute("SELECT admin_status FROM users WHERE username='johndoe'")
+
+    admin_status = cur.fetchone()
+
+    if admin_status and admin_status[0] == 1:
+        return json.dumps({'admin_status': 1}), 200
+    else:
+        return json.dumps({'admin_status': 0}), 200
+
+    
+    
+
 app.run()
