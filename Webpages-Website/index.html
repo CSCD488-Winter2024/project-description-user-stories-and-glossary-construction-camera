@@ -5,7 +5,6 @@
     <style>
         body {
           font-family: Arial, Helvetica, sans-serif;
-          background-image: url('images/ConstructionBackground2.jpg');
           background-repeat: no-repeat;
           background-attachment: fixed;
           background-size: cover;
@@ -73,14 +72,14 @@
     </style>
     </head>
 <body>
-  <h2 style="text-align:center; color: #02fdf0;  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" >ML/AI Construction Camera</h2>
+  <h2 style="text-align:center; color: #de7e02;  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" >ML/AI Construction Camera</h2>
     <div class="container">
-        <form id="loginPage">
-            <label for="uname" style="color: #02fdf0;"><b>Username</b></label>
+        <form id="loginPage" action="http://127.0.0.1:5000/api/loginConfirm" method="get">
+            <label for="uname" style="color: #de7e02;"><b>Username</b></label>
             <input type="text" placeholder="Enter Username" name="username" id="username" required>
-            <label for="psw" style="color: #02fdf0;"><b>Password</b></label>
+            <label for="psw" style="color: #de7e02;"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="password" id="password" required>
-            <button type="submit">Login</button>
+            <button type="submit" onclick="saveUsername()">Login</button>
             <label>
                 <input type="checkbox" checked="checked" name="remember" style="  color: #02fdf0;  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> Remember me
             </label>
@@ -88,46 +87,22 @@
     </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("loginPage").addEventListener("submit", function(event) {
-        event.preventDefault();
+  function saveUsername() {
+    var username = document.getElementById('username').value;
 
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "http://localhost:8000/connect.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-        xhr.onreadystatechange = function() {
-          console.log("Ready state: " + xhr.readyState);
-          console.log("Status: " + xhr.status);
-          if(xhr.readyState === 4 && xhr.status === 200){
-            console.log("Response: "+ xhr.responseText);
-            if(xhr.responseText === "success"){
-              console.log("Correct credentials");
-              console.log(xhr.responseText);
-              //window.location.href = "videoPage.html";
-            }
-            else {
-              console.log("incorrect credentials");
-              window.location.href = "index.html";
-              alert("Incorrect username or password. Please try again.");
-              document.getElementById("username").value = "";
-              document.getElementById("password").value = "";
-            }
-          }
-        };     
-        xhr.send("username=" + username + "&password=" + password);
-    });
-});
+    localStorage.setItem('username', username);
+  }
 </script>
 
+    
+    <form>
         <div class="container" style="background-color:#f1f1f1">
             <button type="button" class="cancelbtn">Cancel</button>
             <span class="psw">Forgot <a href="#">password?</a></span>
         </div>
     </form>
+
+   
 
 
 
