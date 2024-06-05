@@ -202,7 +202,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
           var storedUsername = localStorage.getItem('username');
-          var fetchUrl = 'http://127.0.0.1:5000/api/fetchUserData?username=' + storedUsername;
+          var fetchUrl = '/api/fetchUserData?username=' + storedUsername;
           fetch(fetchUrl)
                 .then(response => response.json())
                 .then(data => {

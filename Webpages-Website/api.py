@@ -1,20 +1,21 @@
 import flask
+import os
 import json
 import mariadb
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS
 from flask import request
 from flask import redirect
-
+from flask import send_from_directory
 
 app = flask.Flask(__name__)
 CORS(app)
-CORS(app, origins='*')
+CORS(app, origins="*")
 app.config["DEBUG"] = True
 
 
 config = {
-    'host': '0.0.0.0',
+    'host': '127.12.0.1',
     'port': 3306,
     'user': 'root',
     'password': 'Password123!',
@@ -38,7 +39,7 @@ def index():
         json_data.append(dict(zip(row_header,result)))
 
     if json_data[0]['COUNT(*)'] > 0:
-        return redirect('http://localhost:8000/videoPage.html')
+        return redirect('/videoPage.html')
     else:
         return "User or Password Incorrect"
 
@@ -140,6 +141,23 @@ def update_user_data():
     conn.close
     return jsonify({'success': True})
 
+
+def get_video_files(directory):
+    video_files = []
+    for fileName in os.listdir(directory):
+        if fileName.endswith(".mp4"):
+            video_files.append(os.path.join(directory, fileName))
+    return video_files
+
+@app.route('/api/videos', methods=['GET'])
+def get_video():
+    video_directory = "./videos/uploads/"
+    videos = get_video_files(video_directory) 
+    return jsonify(videos)
+
+@app.route("/api/videos/uploads/<path:filename>")
+def download_file(filename):
+    return send_from_directory('./videos/uploads/', filename)
 
 
 app.run()

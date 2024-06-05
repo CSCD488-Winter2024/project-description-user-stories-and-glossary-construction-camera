@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Multiple Videos</title>
+<link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet">
+<script src="https://vjs.zencdn.net/7.15.4/video.js"></script>
 <style>
   .drawer {
     position: fixed;
@@ -18,6 +20,16 @@
     transition: transform 0.3s ease;
     transform: translateX(100%);
   }
+
+  .video-container {
+    margin: 0 auto; /* Center the container horizontally */
+    width: 400px; /* Set a fixed width for the container */
+    text-align: center; /* Center the video element inside the container */
+    padding: 10px;
+  }
+
+
+
   .drawer.open {
     transform: translateX(0);
   }
@@ -57,7 +69,7 @@
 </style>
 </head>
 <body>
-  <div class="menu-button"  id="menu-button" style="color: #FF5F1F; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" onclick="toggleDrawer()">☰</div>
+  <div class="menu-button" id="menu-button" style="color: #FF5F1F; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" onclick="toggleDrawer()">☰</div>
 
   <div class="drawer" id="drawer">
     <a href="#" onclick="closeDrawer()">Close Menu</a>
@@ -67,35 +79,56 @@
   </div>
 
   <h1 style="color: #FF6700;">Video Page</h1>
-    <div class="video-container">
-      <video controls width="400">
-        <source src="" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-    <div class="video-container">
-      <video controls width="400">
-        <source src="" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
+  <div id="video-container"></div>
 
 <script>
- 
-  const videos = [
-    'video1.mp4',
-    'video2.mp4'
-  ];
+  // Function to fetch videos from the API
+  function fetchVideos() {
+    fetch('/api/videos') // Assuming your API endpoint is running on localhost:5000
+      .then(response => response.json())
+      .then(data => {
+        displayVideos(data);
+      })
+      .catch(error => {
+        console.error('Error fetching videos:', error);
+      });
+  }
 
-  const videoElements = document.querySelectorAll('video');
+  // Function to display videos using Video.js
+  function displayVideos(videos) {
+    const videoContainer = document.getElementById('video-container');
+    videos.forEach(videoSrc => {
+      const videoDiv = document.createElement('div');
+      videoDiv.className = 'video-container';
+      
+      const videoElement = document.createElement('video');
+      videoElement.className = 'video-js vjs-default-skin';
+      videoElement.setAttribute('controls', true);
+      videoElement.width = 400;
+      videoElement.height = 300;
 
-  videoElements.forEach((video, index) => {
-    video.src = videos[index];
+      const sourceElement = document.createElement('source');
+      sourceElement.src = '/api/' + videoSrc;
+      sourceElement.type = 'video/mp4';
+      
+      videoElement.appendChild(sourceElement);
+      videoDiv.appendChild(videoElement);
+      videoContainer.appendChild(videoDiv);
+      
+      // Initialize Video.js for each video element
+      videojs(videoElement);
+    });
+  }
+
+  // Fetch and display videos when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    fetchVideos();
   });
 
+  // Drawer toggle functions
   function toggleDrawer() {
-    var drawer = document.getElementById('drawer');
-    var menuButton = document.getElementById("menu-button");
+    const drawer = document.getElementById('drawer');
+    const menuButton = document.getElementById("menu-button");
     drawer.classList.toggle('open');
 
     if (drawer.style.display === "block") {
@@ -108,8 +141,8 @@
   }
 
   function closeDrawer() {
-    var drawer = document.getElementById('drawer');
-    var menuButton = document.getElementById("menu-button");
+    const drawer = document.getElementById('drawer');
+    const menuButton = document.getElementById("menu-button");
     drawer.classList.remove('open');
 
     drawer.style.display = "none";
@@ -120,3 +153,4 @@
 
 </body>
 </html>
+

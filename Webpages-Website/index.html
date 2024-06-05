@@ -74,15 +74,13 @@
 <body>
   <h2 style="text-align:center; color: #de7e02;  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" >ML/AI Construction Camera</h2>
     <div class="container">
-        <form id="loginPage" action="http://127.0.0.1:5000/api/loginConfirm" method="get">
+        <form id="loginPage" action="/api/loginConfirm" method="get">
             <label for="uname" style="color: #de7e02;"><b>Username</b></label>
             <input type="text" placeholder="Enter Username" name="username" id="username" required>
             <label for="psw" style="color: #de7e02;"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="password" id="password" required>
             <button type="submit" onclick="saveUsername()">Login</button>
-            <label>
-                <input type="checkbox" checked="checked" name="remember" style="  color: #02fdf0;  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> Remember me
-            </label>
+           
         </form>
     </div>
 
