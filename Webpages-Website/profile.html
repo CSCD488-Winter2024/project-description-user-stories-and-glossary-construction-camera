@@ -261,7 +261,7 @@
                 return;
             }
 
-        fetch('http://127.0.0.1:5000/api/updateUserData?username=' + storedUsername,{
+        fetch('/api/updateUserData?username=' + localStorage.getItem('username'),{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -297,7 +297,7 @@
                 return;
             }
 
-            fetch('http://127.0.0.1:5000/api/deleteUser?username=' + storedUsername, {
+            fetch('/api/deleteUser?username=' + storedUsername, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'

@@ -88,7 +88,7 @@ def fetch_user_profile():
     conn = mariadb.connect(**config)
     cur = conn.cursor()
     username = request.args.get('username')
-    cur.execute("SELECT name, email, phone_number FROM users WHERE username=%s", (username,))
+    cur.execute("SELECT username, email, phone_number FROM users WHERE username=%s", (username,))
 
     profile_data = cur.fetchone()
 
