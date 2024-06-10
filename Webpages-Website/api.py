@@ -151,13 +151,13 @@ def get_video_files(directory):
 
 @app.route('/api/videos', methods=['GET'])
 def get_video():
-    video_directory = "./videos/uploads/"
+    video_directory = "./videos/converted/"
     videos = get_video_files(video_directory) 
     return jsonify(videos)
 
-@app.route("/api/videos/uploads/<path:filename>")
+@app.route("/api/videos/converted/<path:filename>")
 def download_file(filename):
-    return send_from_directory('./videos/uploads/', filename)
+    return send_from_directory('./videos/converted/', filename)
 
 
 app.run()
