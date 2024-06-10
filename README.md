@@ -41,7 +41,7 @@ An account will have to be made on the website to ensure you can connect your ca
 Look at installation.md file. 
 ### Functionality
 This project will aim to detect violations at contruction sites and send them to the web site which will give employees and overseers the ability to watch and review the violations from where ever on their device.  The RPI uses flask to send any video that has a 
-detetced violation to the website using flask. Of course they will need a login.  
+detetced violation to the website. Of course they will need a login.  
 ### Known Problems
 We only have one real problem, but have a bunch of things we'd like to improve:
   - Editing for user credentials is not working and needs to be fixed.
