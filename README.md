@@ -8,10 +8,24 @@ Every year hundreds of construction workers are hurt and some die from PPE relat
 Comsumer - 
 For installation, simply connect the box at a desired vantage point, connect it to power, and login using the website to connect it to your phone and account.
 
-Other -
-You will need a rasberry pi 4 with some type of camera add-on.  The RPI will need to have rasberry pi OS installed.  You will then simply clone the repo onto it, then run the bash script to get it setup. (script is not yet made)
+Dev -
+  Raspberry PI portion: You will need a rasberry pi (RPI5 will work best) with some type of camera add-on.  The RPI will need to have rasberry pi OS installed.  You will then simply clone the repo onto it, then run the bash script to get it setup. (script is not yet 
+  made)
+
+  Webserver portion: The Web server works on a linux server.  The server is built on 3 main scripts, the python http server, the python flask api, and the video transfer script.  To begin, intially you need to clone the repo and go to the Web-Server folder.  From there    we will first create the MariaDb database within a docker container. To do that follow the instructions on this URL, the api will be in the api.py file. https://hackernoon.com/getting-started-with-mariadb-using-docker-python-and-flask-pa1i3ya3                            Once that has been setup and the credentials have been changed in the api.py foler that part should be done.  At that part the website should be ready to run locally, to do this you will run the server.py http server and the api.py flask api.  This will be done by     
+  using "python3 <fileName.py>" for each of those files in different terminals.  Once this is done the website should be available through localhost. From here you can work on devlopment thorugh localhost. 
+  
+  Hosting portion: To host this website for devices outside the network we will need to do a few more additional steps.  The first being finding the servers public IP, and opening ports for the website.  To find your public IP you can use a website (anyone found when 
+  you search "whats my public IP").   From there we need to open a few ports, I used port 8000 for http server, port 80 for nginx, port 6000 for the flask api, and port 5000 for the file transfer script (we will talk about this after this).  Do that through your router 
+  settings page.  Once that is done we will also need to create a reverse proxy using nginx.  To do this we will install nginx and create a config file for it.  This file will listen on port 80 of your public IP and redirect requests depending if they are requesting the 
+  api or http server. This config pretty much gives directions to request depending on if they are are aiming to make http requests or api request (since they are on different ports).  Once this is done you should be up and running for devices not on your local network. 
+  Depending on your servers config you may have to disable some security features of your file wall or selinux, but will differ for each linux distrobution. 
+
+  Video Transfer Portion: This is a single script that also uses flask to export videos from the RPI to the server.  It uses flask, and is ran by using "python3 /videos/server.py" (in the repo it does have the same name as the http server, but is in the videos folder). 
+  Once its running it should import the videos that are taken from the RPI and display them on the video page after login. 
+  
 ### Prerequisites
-An account will have to be made on the website to ensure yu can connect your cameras after you install them. The camera will require power as well to operate. No other set-up will need to be done. 
+An account will have to be made on the website to ensure you can connect your cameras after you install them. The camera will require power as well to operate. No other set-up will need to be done. 
 ### Add-ons
 TODO: List which add-ons are included in the project, and the purpose each add-on serves in your app.
 ### Installation Steps
