@@ -35,3 +35,5 @@
  - This will also need setup on the RPI side, but we will explain that below. 
 
 ## Raspberry PI Installations:
+ - Install Raspberry OS on the RPI
+ - Install these packages with these commands: 
