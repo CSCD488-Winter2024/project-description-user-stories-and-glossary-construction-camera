@@ -37,6 +37,9 @@ An account will have to be made on the website to ensure you can connect your ca
      - json
      - mariaDB
    ##### Raspberry PI
+    - 
+    -
+    -
 ### Installation Steps
 Look at installation.md file. 
 ### Functionality
