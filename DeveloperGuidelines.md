@@ -16,7 +16,7 @@ The whole updated project is available from main
  - This is the server that sets the paths for each page and sets the initial page to the login page.
  - It is very basic and is whats used to host the website on local host.
  - If a page is added we would need to implement it into this file.
- - ![image](https://github.com/CSCD488-Winter2024/project-description-user-stories-and-glossary-construction-camera/assets/124394194/38915928-d790-439d-89ee-853b52ab95b8)
+   ![image](https://github.com/CSCD488-Winter2024/project-description-user-stories-and-glossary-construction-camera/assets/124394194/38915928-d790-439d-89ee-853b52ab95b8)
 
 
 #### Api Script & MariaDB
