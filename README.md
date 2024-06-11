@@ -59,10 +59,10 @@ TODO: Leave the steps below if you want others to contribute to your project.
 4. Push to the branch: git push origin my-new-feature
 5. Submit a pull request :D
 ### Additional Documentation
-Inital Contributors: /n
-  Conner Hanson: @connerhanson /n
-  Artur: /n
-  Moses: /n
+Inital Contributors:   
+  Conner Hanson: @connerhanson   
+  Artur:   
+  Moses:   
 ### License
 If you haven't already, add a file called LICENSE.txt with the text of the appropriate license.
 We recommend using the MIT license: https://choosealicense.com/licenses/mit/
