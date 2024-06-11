@@ -3,10 +3,10 @@
 ### An AI camera that watches over construction sites and identifies workers without PPE on.
 Every year hundreds of construction workers are hurt and some die from PPE related accidents that are easily preventable. This will help to reduce said accidents by ensuring workers wear the neccesary gear when on the site. By simply installing a box and logging in, you can watch over the site without having to be there. Multiple cameras can also be connected to make a perimeter around the site if needed. 
 ### Installation - Look installation.md for full guide
-Comsumer - 
+####Comsumer - 
 For installation, simply connect the box at a desired vantage point, connect it to power, and login using the website to connect it to your phone and account.
 
-Dev -
+####Dev -
   Raspberry PI portion: You will need a rasberry pi (RPI5 will work best) with some type of camera add-on.  The RPI will need to have rasberry pi OS installed.  You will then simply clone the repo onto it, then run the bash script to get it setup. (script is not yet 
   made)
 
