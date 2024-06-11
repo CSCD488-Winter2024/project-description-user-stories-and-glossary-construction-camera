@@ -36,4 +36,6 @@
 
 ## Raspberry PI Installations:
  - Install Raspberry OS on the RPI
- - Install these packages with these commands: 
+ - From the Scripts folder, move '''final.py''' along with '''yolov8m_custom.pt''' into their own directory. The script may need to be modified, since it uses absolute paths.
+ - Run '''final.py''' and when it prompts for the parameters, enter 0.5 for both. It may not detect the webcam, in which case you may need to modify the camera it uses in the script. It is an int which corresponds to a USB port.
+ - The IP in the script may also need to be modified depending on the IP of the server.
