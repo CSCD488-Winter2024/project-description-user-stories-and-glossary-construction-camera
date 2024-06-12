@@ -37,9 +37,12 @@ An account will have to be made on the website to ensure you can connect your ca
      - json
      - mariaDB
    ##### Raspberry PI
-    - 
-    -
-    -
+  - python3 - pip installs:
+      - ultralytics
+      - requests
+      - numpy
+      - opencv-python
+    Depending on your camera, you may need to install additional packages in order to operate it.
 ### Installation Steps
 Look at installation.md file. 
 ### Functionality
@@ -61,7 +64,7 @@ TODO: Leave the steps below if you want others to contribute to your project.
 ### Additional Documentation
 Inital Contributors:   
   Conner Hanson: @connerhanson   
-  Artur:   
+  Artur:   @theartur2000
   Moses:   
 ### License
 If you haven't already, add a file called LICENSE.txt with the text of the appropriate license.
