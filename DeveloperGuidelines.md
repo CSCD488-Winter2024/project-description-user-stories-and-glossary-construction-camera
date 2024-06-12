@@ -39,3 +39,9 @@ The whole updated project is available from main
 
 
 ### RPI
+  - One main file, '''final.py''', which is in charge of running the ML model, the webcam, recording, organzing files, and sending violations videos.
+  - The software takes in two parameters. The first parameter is designed to account for innaccurately trained models or inproperly trained models. If the model isn't perfectly trained, and does not detect every single component accurately, then this parameter gives the model some leeway so that it may still be usable.
+  - The second parameter is similar to the first. It is in charge of the overall violations for the entire video. At 0.50, if 50% of the video contained violations, then the video is tagged as a violation and sent to the IP address.
+  - The '''results''' variable is what houses the prediction results from running the model on the recorded video. It also takes parameters. These parameters can be modified or additional parameters may be added. These can be found at: https://docs.ultralytics.com/modes/predict/.
+  - The function also contains a for loop which iterates over every frame and counts the total detections for each class. The two classes are Hat and Person. The math portion then calculates whether the total amount of detections versus the deviation is too high, which triggers the violation portion of the script.
+  - The rest of the script is in charge of recording video and creating directories.
