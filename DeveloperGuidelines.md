@@ -28,7 +28,13 @@ The whole updated project is available from main
    ![image](https://github.com/CSCD488-Winter2024/project-description-user-stories-and-glossary-construction-camera/assets/124394194/0210ae70-bb7c-47a8-a291-6d715de8d973)
  - The second part is all the endpoints:  
    ![image](https://github.com/CSCD488-Winter2024/project-description-user-stories-and-glossary-construction-camera/assets/124394194/e65b8530-79ae-4527-9732-6aa48058ec9b)
- - Each time you restart the machine, you will have to start the MariaDB container using '''sudo docker start <containerID>'''
+ - Each time you restart the machine, you will have to start the MariaDB container using '''sudo docker start containerID'''
+
+
+#### Reverse Proxy Server
+  - We also use nginx as a reverse proxy to direct requests wether they are api or http requests
+  - This setup will ultimately be dependent on your system, and will need to be setup occordingly.
+  - In basic sense it will listen for requests on a port and redirect them to the port specified by the request. 
 
 
 
