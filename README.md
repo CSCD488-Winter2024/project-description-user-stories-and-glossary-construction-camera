@@ -1,71 +1,119 @@
 # AI/ML Construction Camera
-## The project is a box with a camera installed that will overlook a construction site. It has an AI installed that will learn and identify workers that are not wearing PPE, notifying the correct personel so they can rectify the situation. It will notify them through a website and simple sms message sent to their phones.
-### An AI camera that watches over construction sites and identifies workers without PPE on.
-Every year hundreds of construction workers are hurt and some die from PPE related accidents that are easily preventable. This will help to reduce said accidents by ensuring workers wear the neccesary gear when on the site. By simply installing a box and logging in, you can watch over the site without having to be there. Multiple cameras can also be connected to make a perimeter around the site if needed. 
-### Installation - Look installation.md for full guide
-#### Comsumer - 
-For installation, simply connect the box at a desired vantage point, connect it to power, and login using the website to connect it to your phone and account.
 
-#### Dev -
-  Raspberry PI portion: You will need a rasberry pi (RPI5 will work best) with some type of camera add-on.  The RPI will need to have rasberry pi OS installed.  You will then simply clone the repo onto it, then run the bash script to get it setup. (script is not yet 
-  made)
+## Overview
+The AI/ML Construction Camera is a smart monitoring system designed to oversee construction sites and ensure worker compliance with personal protective equipment (PPE) regulations. The device is housed in a weather-resistant box containing a camera and AI model, capable of identifying workers not wearing appropriate PPE. Notifications are sent via a web platform and SMS to designated personnel for quick intervention.
 
-  Webserver portion: The Web server works on a linux server.  The server is built on 3 main scripts, the python http server, the python flask api, and the video transfer script.  To begin, intially you need to clone the repo and go to the Web-Server folder.  From there    we will first create the MariaDb database within a docker container. To do that follow the instructions on this URL, the api will be in the api.py file. https://hackernoon.com/getting-started-with-mariadb-using-docker-python-and-flask-pa1i3ya3                            Once that has been setup and the credentials have been changed in the api.py foler that part should be done.  At that part the website should be ready to run locally, to do this you will run the server.py http server and the api.py flask api.  This will be done by     
-  using "python3 <fileName.py>" for each of those files in different terminals.  Once this is done the website should be available through localhost. From here you can work on devlopment thorugh localhost. 
-  
-  Hosting portion: To host this website for devices outside the network we will need to do a few more additional steps.  The first being finding the servers public IP, and opening ports for the website.  To find your public IP you can use a website (anyone found when 
-  you search "whats my public IP").   From there we need to open a few ports, I used port 8000 for http server, port 80 for nginx, port 6000 for the flask api, and port 5000 for the file transfer script (we will talk about this after this).  Do that through your router 
-  settings page.  Once that is done we will also need to create a reverse proxy using nginx.  To do this we will install nginx and create a config file for it.  This file will listen on port 80 of your public IP and redirect requests depending if they are requesting the 
-  api or http server. This config pretty much gives directions to request depending on if they are are aiming to make http requests or api request (since they are on different ports).  Once this is done you should be up and running for devices not on your local network. 
-  Depending on your servers config you may have to disable some security features of your file wall or selinux, but will differ for each linux distrobution. 
+## Project Objective
+To improve construction site safety by reducing preventable PPE-related injuries and fatalities. The system enables remote monitoring and management through a user-friendly web interface, with optional multi-camera setups for full perimeter coverage.
 
-  Video Transfer Portion: This is a single script that also uses flask to export videos from the RPI to the server.  It uses flask, and is ran by using "python3 /videos/server.py" (in the repo it does have the same name as the http server, but is in the videos folder). 
-  Once its running it should import the videos that are taken from the RPI and display them on the video page after login. 
-  
-### Prerequisites
-An account will have to be made on the website to ensure you can connect your cameras after you install them (through the containerized MariaDb database). The camera will require power as well to operate. No other set-up will need to be done. 
-#### Prerequisites Packages:
-  ##### Web-Server
-  - MariaDB w/c-connector
-  - Docker
-  - nginx
-  - python3 - pip installs:
-     - flask
-     - moviepy.editor
-     - http.server
-     - urllib.parse
-     - json
-     - mariaDB
-   ##### Raspberry PI
-  - python3 - pip installs:
-      - ultralytics
-      - requests
-      - numpy
-      - opencv-python
-    Depending on your camera, you may need to install additional packages in order to operate it.
-### Installation Steps
-Look at installation.md file. 
-### Functionality
-This project will aim to detect violations at contruction sites and send them to the web site which will give employees and overseers the ability to watch and review the violations from where ever on their device.  The RPI uses flask to send any video that has a 
-detetced violation to the website. Of course they will need a login.  
-### Known Problems
-We only have one real problem, but have a bunch of things we'd like to improve:
-  - Editing for user credentials is not working and needs to be fixed.
-  - Improve reponsiveness for mobile devices.
-  - Create a script for running all files at once for the web server (to run the api.py, server.py and videos/server.py all with one script).
-  - Possibly creating a database for videos rather then keeping them in linux file system. 
-### Contributing
-TODO: Leave the steps below if you want others to contribute to your project.
-1. Fork it!
-2. Create your feature branch: git checkout -b my-new-feature
-3. Commit your changes: git commit -am 'Add some feature'
-4. Push to the branch: git push origin my-new-feature
-5. Submit a pull request :D
-### Additional Documentation
-Inital Contributors:   
-  Conner Hanson: @connerhanson   
-  Artur:   @theartur2000
-  Moses:   
-### License
-If you haven't already, add a file called LICENSE.txt with the text of the appropriate license.
-We recommend using the MIT license: https://choosealicense.com/licenses/mit/
+## Key Features
+- AI-powered detection of PPE violations
+- Real-time alerts via web and SMS
+- Remote site access through secure login
+- Scalable to multiple camera setups
+
+## Installation Guide
+Refer to `installation.md` for complete instructions.
+
+### Consumer Installation
+1. Mount the device at a strategic vantage point.
+2. Connect to a power source.
+3. Log in via the website to link the device to your account and phone.
+
+### Developer Installation
+
+#### Raspberry Pi Setup
+- Hardware: Raspberry Pi (RPI 5 recommended) with camera module.
+- Software:
+  1. Install Raspberry Pi OS.
+  2. Clone the repository.
+  3. Run the provided bash setup script (TBD).
+
+#### Web Server Setup
+- Environment: Linux server
+- Components:
+  - Python HTTP server (`server.py`)
+  - Flask API (`api.py`)
+  - Video transfer script (`videos/server.py`)
+- Setup Steps:
+  1. Clone the repository and navigate to the `Web-Server` directory.
+  2. Follow instructions to set up MariaDB in Docker:  
+     [HackerNoon Guide](https://hackernoon.com/getting-started-with-mariadb-using-docker-python-and-flask-pa1i3ya3)
+  3. Configure database credentials in `api.py`.
+  4. Start services with:
+     ```
+     python3 server.py
+     python3 api.py
+     python3 videos/server.py
+     ```
+  5. Access the website via `localhost`.
+
+#### Hosting Configuration
+- Determine your public IP (e.g., via "What is my IP" websites).
+- Open the necessary ports on your router:
+  - Port 8000: HTTP server
+  - Port 80: nginx
+  - Port 6000: Flask API
+  - Port 5000: File transfer
+- Install and configure nginx for reverse proxying.
+- Adjust firewall or SELinux settings based on your distribution.
+
+#### Video Transfer
+- Flask-based script (`videos/server.py`) sends RPI video files to the server.
+- Videos become viewable on the video page after user login.
+
+## Prerequisites
+
+### User Requirements
+- Website account (connected to MariaDB container)
+- Power supply for the camera box
+
+### Required Packages
+
+#### Web Server
+- MariaDB with C-Connector
+- Docker
+- nginx
+- Python3 with the following packages:
+  - flask  
+  - moviepy.editor  
+  - http.server  
+  - urllib.parse  
+  - json  
+  - mariadb  
+
+#### Raspberry Pi
+- Python3 with the following packages:
+  - ultralytics  
+  - requests  
+  - numpy  
+  - opencv-python  
+
+Note: Additional camera-specific packages may be required.
+
+## Functionality
+This system captures and analyzes video feeds to detect PPE violations, which are then uploaded to a secure website for review by authorized users. A login is required to view violation footage and manage devices.
+
+## Known Issues
+- User credential editing functionality is currently broken.
+- Limited mobile responsiveness on the web interface.
+- No unified script to run all server processes.
+- Video storage is file-based; database integration is under consideration.
+
+## Contributing
+We welcome contributions:
+1. Fork the repository.
+2. Create a new branch: `git checkout -b my-new-feature`
+3. Commit changes: `git commit -am 'Add new feature'`
+4. Push the branch: `git push origin my-new-feature`
+5. Submit a pull request.
+
+## Additional Documentation
+**Initial Contributors:**  
+- Conner Hanson: [@connerhanson](https://github.com/connerhanson)  
+- Artur: [@theartur2000](https://github.com/theartur2000)  
+- Moses
+
+## License
+Refer to `LICENSE.txt` for licensing details.  
+Recommended license: [MIT License](https://choosealicense.com/licenses/mit/)
